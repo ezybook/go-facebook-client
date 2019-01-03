@@ -67,7 +67,7 @@ type AccessTokenResponse struct {
 func (c *AccountKit) GetAccessToken(authorizationCode string) (AccessTokenResponse, error) {
 	res := new(AccessTokenResponse)
 
-	endpoint := fmt.Sprintf("access_token?grant_type=authorization_code&code%s&access_token=%s", authorizationCode, c.appAccessToken)
+	endpoint := fmt.Sprintf("access_token?grant_type=authorization_code&code=%s&access_token=%s", authorizationCode, c.GetAppAccessToken())
 
 	err := c.client.request("GET", endpoint, nil, res)
 	return *res, err
