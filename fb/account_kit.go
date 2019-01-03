@@ -64,8 +64,8 @@ type AccessTokenResponse struct {
 	AccessToken string `json:"access_token"`
 }
 
-func (c *AccountKit) GetAccessToken(authorizationCode string) (AccessTokenValidationResponse, error) {
-	res := new(AccessTokenValidationResponse)
+func (c *AccountKit) GetAccessToken(authorizationCode string) (AccessTokenResponse, error) {
+	res := new(AccessTokenResponse)
 
 	endpoint := fmt.Sprintf("access_token?grant_type=authorization_code&code%s&access_token=%s", authorizationCode, c.appAccessToken)
 
