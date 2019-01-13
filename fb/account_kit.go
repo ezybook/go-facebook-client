@@ -75,7 +75,8 @@ func (c *AccountKit) GetAccessToken(authorizationCode string) (AccessTokenRespon
 
 type UserResponse struct {
 	Id    string `json:"id"`
-	Phone Phone  `json:"phone"`
+	Phone *Phone `json:"phone"`
+	Email *Email `json:"email"`
 }
 
 type AccessTokenValidationResponse struct {
@@ -87,6 +88,10 @@ type Phone struct {
 	Number         string `json:"number"`
 	CountryPrefix  string `json:"country_prefix"`
 	NationalNumber string `json:"national_number"`
+}
+
+type Email struct {
+	Address string `json:"address"`
 }
 
 type Application struct {
